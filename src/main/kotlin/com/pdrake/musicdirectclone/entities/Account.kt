@@ -11,9 +11,10 @@ class Account(
     val password: String,
     @Column(name = "ADDRESS", length = 30, nullable = false)
     val address: String,
-    @OneToMany(mappedBy = "account")
-    val roles: List<Role>
 ) : BaseEntity() {
+    @OneToMany(mappedBy = "account")
+    val roles: List<Role> = listOf()
+
     @OneToOne(mappedBy = "account")
     @PrimaryKeyJoinColumn
     val cart: Cart? = null

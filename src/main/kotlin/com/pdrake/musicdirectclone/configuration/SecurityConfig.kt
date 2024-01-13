@@ -20,8 +20,8 @@ class SecurityConfig(val userDetailsService: UserDetailsService) {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeHttpRequests {
-            it.requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-            it.requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+            it.requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+            it.requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
             it.anyRequest().authenticated()
         }.sessionManagement {
             it.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
