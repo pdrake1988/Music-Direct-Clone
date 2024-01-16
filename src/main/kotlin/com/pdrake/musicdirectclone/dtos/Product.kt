@@ -10,5 +10,5 @@ data class Product(
     val category: String,
     @NotBlank(message = "Quantity is required")
     val quantity: Int,
-    val csrfToken: CsrfToken?
+    val csrfToken: CsrfToken
 )

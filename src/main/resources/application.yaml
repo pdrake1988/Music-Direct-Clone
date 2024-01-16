@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: "jdbc:oracle:thin:@//localhost:3000/XEPDB1"
+    username: "pdbadmin"
+    password: "Rewind0614"
+    driver-class-name: "oracle.jdbc.driver.OracleDriver"
+  session:
+    jdbc:
+      table-name: "SPRING_SESSION"
+      initialize-schema: always
+  ssl:
+    bundle:
+      jks:
+        server:
+          key:
+            alias: "keystore"
+          keystore:
+            location: "classpath:certs/cert.p12"
+            password: "Rewind0614"
+            type: "PKCS12"
+      pem:
+        client:
+          truststore:
+            certificate: "classpath:client.crt"

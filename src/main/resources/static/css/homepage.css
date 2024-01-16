@@ -1,0 +1,13 @@
+.header {
+    width: 50%;
+    margin: auto;
+    display: flex;
+}
+
+.header > div {
+    margin: auto;
+}
+
+main {
+    width: 50%;
+}

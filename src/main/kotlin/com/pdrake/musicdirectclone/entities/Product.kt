@@ -15,8 +15,8 @@ class Product(
     @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
     @JoinTable(
         name = "CART_ITEMS",
-        joinColumns = [JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "id", nullable = false)],
-        inverseJoinColumns = [JoinColumn(name = "PRODUCT_ID", referencedColumnName = "id", nullable = false)]
+        joinColumns = [JoinColumn(name = "ACCOUNT_ID", nullable = false)],
+        inverseJoinColumns = [JoinColumn(name = "PRODUCT_ID", nullable = false)]
     )
     val cart: MutableList<Cart> = mutableListOf()
 }

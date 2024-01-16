@@ -1,0 +1,8 @@
+<html lang="en" th:replace="~{layout.html :: layout(~{::main})}">
+<main>
+    <div class="product" th:each="prod : ${products}">
+        <h1 th:text="prod.name"></h1>
+        <p th:text="prod.category"></p>
+    </div>
+</main>
+</html>

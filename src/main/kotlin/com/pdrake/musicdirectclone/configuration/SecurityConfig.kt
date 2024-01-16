@@ -12,10 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession
+import org.springframework.session.config.annotation.web.http.EnableSpringHttpSession
 
 @Configuration
-@EnableJdbcHttpSession
+@EnableSpringHttpSession
 class SecurityConfig(val userDetailsService: UserDetailsService) {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {

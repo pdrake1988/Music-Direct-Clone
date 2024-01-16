@@ -7,7 +7,7 @@ import jakarta.persistence.*
 class Cart(
     @OneToOne
     @MapsId
-    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "ACCOUNT_ID", nullable = false)
     val account: Account
 ) : BaseEntity() {
     @ManyToMany(mappedBy = "cart")
