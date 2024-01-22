@@ -2,12 +2,39 @@
     width: 50%;
     margin: auto;
     display: flex;
+    justify-content: center;
 }
 
 .header > div {
     margin: auto;
 }
 
+#register {
+    display: none;
+}
+
+#login {
+    display: none;
+}
+
+div > form {
+    display: flex;
+    margin: auto;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.title {
+    position: relative;
+    text-align: center;
+}
+
 main {
     width: 50%;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    height: 100vh;
 }

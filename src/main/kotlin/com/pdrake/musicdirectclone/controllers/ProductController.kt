@@ -1,17 +1,20 @@
 package com.pdrake.musicdirectclone.controllers
 
+import com.pdrake.musicdirectclone.dtos.ProductDto
+import com.pdrake.musicdirectclone.entities.Product
 import com.pdrake.musicdirectclone.repos.ProductRepository
-import org.springframework.security.crypto.password.PasswordEncoder
+import jakarta.validation.Valid
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 
 
 @Controller
 class ProductController(
-    private val productRepository: ProductRepository,
-    private val passwordEncoder: PasswordEncoder
+    private val productRepository: ProductRepository
 ) {
     @GetMapping("/")
     fun home(model: Model): String {
@@ -25,5 +28,13 @@ class ProductController(
         val products = productRepository.findProductByCategory(category)
         model.addAttribute("products", products)
         return "homepage"
+    }
+
+    @PostMapping("/new-product")
+    @PreAuthorize(value = "hasRole('ADMIN')")
+    fun newProduct(@Valid productDto: ProductDto): String {
+        val newProduct = Product(productDto.name, productDto.description, productDto.category, productDto.quantity)
+        productRepository.save(newProduct)
+        return "redirect:/"
     }
 }

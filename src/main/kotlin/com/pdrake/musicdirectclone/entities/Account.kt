@@ -12,7 +12,7 @@ class Account(
     @Column(name = "ADDRESS", length = 30, nullable = false)
     val address: String,
 ) : BaseEntity() {
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     val roles: List<Role> = listOf()
 
     @OneToOne(mappedBy = "account")

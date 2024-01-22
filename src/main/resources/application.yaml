@@ -8,17 +8,3 @@ spring:
     jdbc:
       table-name: "SPRING_SESSION"
       initialize-schema: always
-  ssl:
-    bundle:
-      jks:
-        server:
-          key:
-            alias: "keystore"
-          keystore:
-            location: "classpath:certs/cert.p12"
-            password: "Rewind0614"
-            type: "PKCS12"
-      pem:
-        client:
-          truststore:
-            certificate: "classpath:client.crt"

@@ -15,10 +15,11 @@ CREATE TABLE ROLE
 );
 CREATE TABLE PRODUCT
 (
-    ID       NUMBER GENERATED ALWAYS AS IDENTITY NOT NULL,
-    Name     VARCHAR(20)                         NOT NULL,
-    Category VARCHAR(20)                         NOT NULL,
-    Quantity INT                                 NOT NULL,
+    ID          NUMBER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    Name        VARCHAR(20)                         NOT NULL,
+    DESCRIPTION VARCHAR(255)                        NOT NULL,
+    Category    VARCHAR(20)                         NOT NULL,
+    Quantity    INT                                 NOT NULL,
     CONSTRAINT PK_Product PRIMARY KEY (ID)
 );
 CREATE TABLE CART

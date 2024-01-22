@@ -2,6 +2,7 @@
 <main>
     <div class="product" th:each="prod : ${products}">
         <h1 th:text="prod.name"></h1>
+        <p th:text="prod.description"></p>
         <p th:text="prod.category"></p>
     </div>
 </main>

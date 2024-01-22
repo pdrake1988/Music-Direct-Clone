@@ -7,6 +7,8 @@ import jakarta.persistence.*
 class Product(
     @Column(name = "NAME", length = 20, nullable = false)
     val name: String,
+    @Column(name = "DESCRIPTION", length = 255, nullable = false)
+    val description: String,
     @Column(name = "CATEGORY", length = 20, nullable = false)
     val category: String,
     @Column(name = "QUANTITY", nullable = false)
