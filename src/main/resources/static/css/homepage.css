@@ -9,21 +9,34 @@
     margin: auto;
 }
 
-#register {
-    display: none;
+.product {
+    display: inline-block;
+    margin: 20px;
+    height: 200px;
 }
 
-#login {
+#new-product {
+    position: absolute;
+    background: gray;
+    z-index: 2;
     display: none;
+    max-width: 200px;
+    max-height: 200px;
 }
 
-div > form {
-    display: flex;
+#errors {
+    background: gray;
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
     margin: auto;
-    align-self: center;
+    z-index: 2;
+}
+
+form {
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
 }
 
 .title {
@@ -32,9 +45,10 @@ div > form {
 }
 
 main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 50%;
     margin: auto;
-    text-align: center;
-    align-content: center;
     height: 100vh;
 }

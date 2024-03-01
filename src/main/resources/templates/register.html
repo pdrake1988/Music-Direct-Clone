@@ -18,10 +18,17 @@
         <h1>Music Direct</h1>
     </div>
     <div>
-        <a th:href="@{/register}">Register</a>
+        <a th:href="@{/auth/login}">Login</a>
     </div>
 </header>
 <main>
+    <!--/*@thymesVar id="errors" type="org.springframework.web.bind.MethodArgumentNotValidException"*/-->
+    <div id="errors" th:if="${errors} != null">
+        <div th:each="error : ${errors}">
+            <!--/*@thymesVar id="defaultMessage" type="org.springframework.validation.FieldError"*/-->
+            <h1 th:text="${error.defaultMessage}"></h1>
+        </div>
+    </div>
     <form action="/auth/register" method="post" th:fragment="register">
         <label for="username">Username</label>
         <input id="username" name="username" type="text"/>

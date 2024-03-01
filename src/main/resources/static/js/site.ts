@@ -1,10 +1,7 @@
-const registerModel = document.getElementById("register") as HTMLFormElement;
-const loginModel = document.getElementById("login") as HTMLInputElement;
+const newProductModal = document.getElementById(
+  "new-product",
+) as HTMLDivElement;
 
-function displayRegister() {
-  registerModel.style.display = "inline-block";
-}
-
-function displayLogin() {
-  loginModel.style.display = "inline-block";
+function showModal() {
+  newProductModal.style.display = "inline-block";
 }

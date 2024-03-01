@@ -18,6 +18,7 @@ class SecurityConfig(private val userDetailsService: UserDetailsService) {
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeHttpRequests {
             it.requestMatchers("/css/*", "/js/*").permitAll()
+            it.requestMatchers("/auth/register").permitAll()
             it.anyRequest().authenticated()
         }.sessionManagement {
             it.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)

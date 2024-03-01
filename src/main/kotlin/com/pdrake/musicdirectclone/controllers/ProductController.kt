@@ -7,9 +7,9 @@ import jakarta.validation.Valid
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.MethodArgumentNotValidException
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.ModelAndView
 
 
 @Controller
@@ -32,9 +32,16 @@ class ProductController(
 
     @PostMapping("/new-product")
     @PreAuthorize(value = "hasRole('ADMIN')")
-    fun newProduct(@Valid productDto: ProductDto): String {
+    fun newProduct(@Valid @ModelAttribute productDto: ProductDto): String {
         val newProduct = Product(productDto.name, productDto.description, productDto.category, productDto.quantity)
         productRepository.save(newProduct)
         return "redirect:/"
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException::class)
+    fun error(ex: MethodArgumentNotValidException, model: ModelAndView): ModelAndView {
+        model.addObject("errors", ex)
+        model.viewName = "error"
+        return model
     }
 }

@@ -1,8 +1,5 @@
-var registerModel = document.getElementById("register");
-var loginModel = document.getElementById("login");
-function displayRegister() {
-    registerModel.style.display = "inline-block";
-}
-function displayLogin() {
-    loginModel.style.display = "inline-block";
+"use strict";
+const newProductModal = document.getElementById("new-product");
+function showModal() {
+    newProductModal.style.display = "inline-block";
 }
